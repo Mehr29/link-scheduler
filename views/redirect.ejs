@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= code %> Not Found</title>
+</head>
+<body style="text-align: center;">
+    <%= content %> redirecting to <u><%= url %></u>  in <b><span id="timer"></span></b> 
+</body>
+<script>
+    function delay(){
+        var counter=6;
+        var x= setInterval(function(){
+          document.getElementById('timer').innerHTML=(counter--)-1;
+          if(counter==1){
+              clearInterval(x);
+              window.location.href="<%= url %>";
+          }
+        },1000)
+    }
+    delay();
+</script>
+</html>
