@@ -13,6 +13,7 @@ const class_end="07:39";
 
 
 // GET ROUTE- (the link that the student will have)
+// Path - /:uid
 router.get('/:uid',check('uid').notEmpty().withMessage("Error in the link"),(req,res)=>{
   const errors=validationResult(req);
   if(!errors.isEmpty()){
@@ -45,7 +46,8 @@ router.get('/:uid',check('uid').notEmpty().withMessage("Error in the link"),(req
 })
 
 
-// GET ROUTE- (the link that the student will actually get)
+// POST ROUTE- (the link that the student will actually get)
+// Path - /link/add
 router.post('/add',[
     body("uid").notEmpty().isLength({min:6}),
     body("schedule").isArray(),
